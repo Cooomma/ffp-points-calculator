@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import Headers from "./components/header";
 
 ReactDOM.render(
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
         <Headers />
         <App />
     </BrowserRouter>,
