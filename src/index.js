@@ -8,8 +8,8 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 ReactDOM.render(
-    <BrowserRouter history={history} basename={process.env.PUBLIC_URL}>
-        <Route path="/" component={App} />
+    <BrowserRouter history={history}>
+        <Route exact path="/" component={App} />
     </BrowserRouter>,
     document.getElementById("root")
 );

@@ -42,5 +42,5 @@
     "devDependencies": {
         "gh-pages": "^2.2.0"
     },
-    "homepage": "https://cooomma.github.io/ffp-points-calculator"
+    "homepage": "http://cooomma.github.io/ffp-points-calculator"
 }
