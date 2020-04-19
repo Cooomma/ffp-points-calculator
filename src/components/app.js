@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import { Toolbar, Typography } from "@material-ui/core";
+import { Toolbar, Typography, Grid } from "@material-ui/core";
 import { Divider, List, ListItem, ListItemText, Drawer } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
@@ -8,10 +8,14 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import NHAirlineCard from "./airlines/nh";
+import CXAirlineCard from "./airlines/cx";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     appBar: {
+        backgroundColor: "black",
+        color: "white",
         transition: theme.transitions.create(["margin", "width"], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -25,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
+    appBarSpacer: theme.mixins.toolbar,
+    content: {
+        padding: theme.spacing(4, 4, 4, 4),
+    },
     menuButton: {
         marginRight: theme.spacing(2),
     },
@@ -32,10 +40,14 @@ const useStyles = makeStyles((theme) => ({
         display: "none",
     },
     drawer: {
+        backgroundColor: "black",
+        color: "white",
         width: drawerWidth,
         flexShrink: 0,
     },
     drawerPaper: {
+        backgroundColor: "black",
+        color: "white",
         width: drawerWidth,
     },
     drawerHeader: {
@@ -48,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Headers() {
+function App() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -93,7 +105,11 @@ function Headers() {
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {theme.direction === "ltr" ? (
+                            <ChevronLeftIcon style={{ color: "white" }} />
+                        ) : (
+                            <ChevronRightIcon style={{ color: "white" }} />
+                        )}
                     </IconButton>
                 </div>
                 <Divider />
@@ -105,8 +121,19 @@ function Headers() {
                     ))}
                 </List>
             </Drawer>
+            <main className={classes.content}>
+                <div className={classes.appBarSpacer} />
+                <Grid container spacing={2}>
+                    <Grid item xs>
+                        <NHAirlineCard />
+                    </Grid>
+                    <Grid item xs>
+                        <CXAirlineCard />
+                    </Grid>
+                </Grid>
+            </main>
         </div>
     );
 }
 
-export default Headers;
+export default App;
