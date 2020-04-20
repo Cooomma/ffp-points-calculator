@@ -1,0 +1,14 @@
+[
+    {
+        "name": "All Nippon Airways",
+        "iata": "NH",
+        "ffpName": "ANA Millege Club",
+        "flagColor": "#143C84"
+    },
+    {
+        "name": "Cathay Pacific",
+        "iata": "CX",
+        "ffpName": "Marco Polo Club",
+        "flagColor": "#005358"
+    }
+]

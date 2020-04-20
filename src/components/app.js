@@ -8,8 +8,8 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import NHAirlineCard from "./airlines/nh";
-import CXAirlineCard from "./airlines/cx";
+import AirlineCard from "./airlineCards";
+import airlines from "../assets/airlines.json";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -114,22 +114,26 @@ function App() {
                 </div>
                 <Divider />
                 <List>
-                    {["All Nippon Airways", "Cathay Pacific"].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemText primary={text} />
+                    {airlines.map((airline) => (
+                        <ListItem button key={airline.name}>
+                            <ListItemText primary={airline.name} />
                         </ListItem>
                     ))}
                 </List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
-                <Grid container spacing={2}>
-                    <Grid item xs>
-                        <NHAirlineCard />
-                    </Grid>
-                    <Grid item xs>
-                        <CXAirlineCard />
-                    </Grid>
+                <Grid container spacing={1}>
+                    {airlines.map((airline) => (
+                        <Grid item xs>
+                            <AirlineCard
+                                name={airline.name}
+                                iata={airline.iata}
+                                ffpName={airline.ffpName}
+                                flagColor={airline.flagColor}
+                            />
+                        </Grid>
+                    ))}
                 </Grid>
             </main>
         </div>

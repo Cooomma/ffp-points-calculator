@@ -6,7 +6,7 @@ import App from "./components/app";
 import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
-
+document.title = "FFP Calculator";
 ReactDOM.render(
     <BrowserRouter history={history} basename={process.env.PUBLIC_URL}>
         <Route exact path="/" component={App} />
