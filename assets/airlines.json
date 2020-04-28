@@ -10,5 +10,11 @@
         "iata": "CX",
         "ffpName": "Marco Polo Club",
         "flagColor": "#005358"
+    },
+    {
+        "name": "Japan Airlines",
+        "iata": "JL",
+        "ffpName": "JAL Mileage Bank",
+        "flagColor": "#bf2915"
     }
 ]
